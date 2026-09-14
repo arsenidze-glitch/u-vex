@@ -15,8 +15,8 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_0%,color-mix(in_oklch,var(--primary)_18%,transparent),transparent)]"
       />
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pt-24">
-        <div className="flex flex-col gap-8">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pt-24">
+        <div className="flex min-w-0 flex-col gap-8">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
             Курс оновлено {ratesUpdatedAt}
@@ -52,7 +52,7 @@ export function Hero() {
             ))}
           </ul>
         </div>
-        <div id="calculator" className="scroll-mt-24">
+        <div id="calculator" className="min-w-0 scroll-mt-24">
           <Calculator />
         </div>
       </div>
