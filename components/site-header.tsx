@@ -13,7 +13,7 @@ const nav = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background">
+    <header className="sticky top-0 z-40 border-b border-[#1a1b1d] bg-[#101112]">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link href="/" aria-label="U·VEX Exchange — на головну" className="flex items-center">
           <Image
@@ -30,7 +30,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm text-white/70 transition-colors hover:text-white"
             >
               {item.label}
             </a>
