@@ -16,6 +16,15 @@ export function Calculator() {
 
   const giveLabel = mode === 'sell' ? rate.code : 'UAH'
   const getLabel = mode === 'sell' ? 'UAH' : rate.code
+  const selectCurrency = (currency: string, side: 'give' | 'get') => {
+    if (currency === 'UAH') {
+      setMode(side === 'give' ? 'buy' : 'sell')
+      return
+    }
+    setCode(currency)
+    setMode(side === 'give' ? 'sell' : 'buy')
+  }
+  const currencyOptions = rates.map((item) => item.code)
 
   return (
     <div className="rounded-3xl border border-border bg-card p-6 shadow-[0_0_0_1px_color-mix(in_oklch,var(--primary)_20%,transparent),0_30px_80px_-30px_color-mix(in_oklch,var(--primary)_35%,transparent)] sm:p-8">
@@ -53,7 +62,17 @@ export function Calculator() {
               className="min-w-0 flex-1 bg-transparent font-display text-3xl font-bold outline-none placeholder:text-muted-foreground"
               placeholder="0"
             />
-            <span className="rounded-full bg-background px-3 py-1.5 text-sm font-semibold">{giveLabel}</span>
+            <div className="relative shrink-0">
+              <select
+                aria-label="Валюта, яку віддаєте"
+                value={giveLabel}
+                onChange={(e) => selectCurrency(e.target.value, 'give')}
+                className="appearance-none rounded-full bg-background py-1.5 pl-3 pr-7 text-sm font-semibold outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <option value="UAH">UAH</option>
+                {currencyOptions.map((currency) => <option key={currency} value={currency}>{currency}</option>)}
+              </select>
+            </div>
           </div>
         </div>
 
@@ -76,24 +95,19 @@ export function Calculator() {
             <output htmlFor="amount" className="min-w-0 flex-1 truncate font-display text-3xl font-bold text-accent-strong">
               {mode === 'sell' ? formatUah(result) : result.toFixed(rate.kind === 'crypto' ? 6 : 2)}
             </output>
-            <span className="rounded-full bg-background px-3 py-1.5 text-sm font-semibold">{getLabel}</span>
+            <div className="relative shrink-0">
+              <select
+                aria-label="Валюта, яку отримуєте"
+                value={getLabel}
+                onChange={(e) => selectCurrency(e.target.value, 'get')}
+                className="appearance-none rounded-full bg-background py-1.5 pl-3 pr-7 text-sm font-semibold outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <option value="UAH">UAH</option>
+                {currencyOptions.map((currency) => <option key={currency} value={currency}>{currency}</option>)}
+              </select>
+            </div>
           </div>
         </div>
-
-        <label className="mt-2 flex flex-col gap-1 text-sm">
-          <span className="text-xs uppercase tracking-wider text-muted-foreground">Валюта</span>
-          <select
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
-            className="h-11 rounded-xl border border-input bg-background px-3 outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {rates.map((r) => (
-              <option key={r.code} value={r.code}>
-                {r.code} — {r.name}
-              </option>
-            ))}
-          </select>
-        </label>
 
         <p className="text-xs leading-relaxed text-muted-foreground">
           Курс: 1 {rate.code} = {formatUah(price)} грн ({mode === 'sell' ? 'купівля' : 'продаж'}). Для сум від
