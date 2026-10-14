@@ -17,12 +17,12 @@ export function Hero() {
       />
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pt-24">
         <div className="flex min-w-0 flex-col gap-8">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-strong">
             <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
             Курс оновлено {ratesUpdatedAt}
           </div>
           <h1 className="font-display text-balance text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">
-            Обмін валют <span className="text-primary">без черг</span> і зайвих відсотків
+            Обмін валют <span className="text-accent-strong">без черг</span> і зайвих відсотків
           </h1>
           <p className="max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
             Долар, євро, злотий та крипта за чесним курсом. Приходьте у відділення або оформіть

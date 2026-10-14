@@ -20,7 +20,7 @@ function Table({ title, items }: { title: string; items: Rate[] }) {
             <tr key={r.code} className="border-t border-border transition-colors hover:bg-secondary/60">
               <td className="px-4 py-4 sm:px-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex size-9 items-center justify-center rounded-full bg-secondary font-display text-[11px] font-bold text-primary">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-secondary font-display text-[11px] font-bold text-accent-strong">
                     {r.code.slice(0, 4)}
                   </span>
                   <div>
@@ -30,7 +30,7 @@ function Table({ title, items }: { title: string; items: Rate[] }) {
                 </div>
               </td>
               <td className="px-4 py-4 text-right font-display font-semibold tabular-nums sm:px-6">{formatUah(r.buy)}</td>
-              <td className="px-4 py-4 text-right font-display font-semibold tabular-nums text-primary sm:px-6">
+              <td className="px-4 py-4 text-right font-display font-semibold tabular-nums text-accent-strong sm:px-6">
                 {formatUah(r.sell)}
               </td>
             </tr>
@@ -50,7 +50,7 @@ export function RatesTable() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-20 sm:px-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Актуальні курси</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-accent-strong">Актуальні курси</p>
             <h2 className="font-display text-balance text-3xl font-bold tracking-tight sm:text-4xl">
               Курси валют сьогодні
             </h2>

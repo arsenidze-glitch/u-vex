@@ -73,7 +73,7 @@ export function Calculator() {
         <div className="rounded-2xl bg-secondary p-4">
           <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">Отримуєте</p>
           <div className="flex items-center gap-3">
-            <output htmlFor="amount" className="min-w-0 flex-1 truncate font-display text-3xl font-bold text-primary">
+            <output htmlFor="amount" className="min-w-0 flex-1 truncate font-display text-3xl font-bold text-accent-strong">
               {mode === 'sell' ? formatUah(result) : result.toFixed(rate.kind === 'crypto' ? 6 : 2)}
             </output>
             <span className="rounded-full bg-background px-3 py-1.5 text-sm font-semibold">{getLabel}</span>
