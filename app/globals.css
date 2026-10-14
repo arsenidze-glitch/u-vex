@@ -74,3 +74,7 @@
 @utility font-display {
   font-family: var(--font-display);
 }
+
+@utility text-accent-strong {
+  color: oklch(0.46 0.14 122);
+}
